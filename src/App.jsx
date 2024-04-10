@@ -2,50 +2,17 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import { useState } from "react";
-import {CartContext } from "./Context/CartContext.jsx";
 import Cart from "./components/Cart/Cart.jsx";
+import { CartProvider } from "./Context/CartContext.jsx";
 
 
 
 function App() {
-
-  const [carrito,setCarrito] = useState([]);
-
-  const addToCart = (item, contador) => {
-    const itemAdded = { ...item, contador };
-
-    const nuevoCarrito = [...carrito];
-
-    const isOnCart = nuevoCarrito.find((prod) => prod.id === itemAdded.id);
-
-    if (isOnCart) {
-      isOnCart.contador += contador;
-
-    } else {
-      nuevoCarrito.push(itemAdded);
-    }
-    setCarrito(nuevoCarrito);
-  };
-
-  const contadorCarrito = ()=> {
-    return carrito.reduce((acc, prod) => acc + prod.contador,0)
-  }
-
-  const precioCarrito = () => {
-    return carrito.reduce((acc, prod) => acc + prod.price * prod.contador,0)
-
-  }
-
-  const vaciarCarrito = () => {
-    setCarrito([]);
-  };
-
   return (
     
     <>
         <BrowserRouter>
-        <CartContext.Provider value={{carrito, addToCart, contadorCarrito, precioCarrito, vaciarCarrito}}>
+        <CartProvider>
           <NavBar />
           <Routes>
             <Route
@@ -72,7 +39,7 @@ function App() {
               
           </Routes>
 
-        </CartContext.Provider>
+          </CartProvider>
         </BrowserRouter>
     </>
   );
