@@ -9,13 +9,14 @@ const Cart = () => {
     vaciarCarrito();
   };
   return (
-    <div>
+    <div className="card m-5 p-2">
       <h1>Carrito</h1>
       {carrito.map((prod) => (
-        <div key={prod.id}>
+        <div key={prod.id} className="card p-2 m-1">
           <h2>{prod.name}</h2>
+          <h6>Categoria: {prod.category}</h6>
           <p>
-            {prod.contador} a $ <b>{prod.price}</b> c/u ---{" "}
+            {prod.contador} a $ <b>{prod.price}</b> c/u ---{"$"}
             {prod.price * prod.contador}
           </p>
         </div>

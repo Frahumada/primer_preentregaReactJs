@@ -69,7 +69,7 @@ const products = [
       category: "musica",
       img: "https://i.ytimg.com/vi/h1Xm9ynJKDM/maxresdefault.jpg",
       stock: 5,
-      description: "Descripcion de HPMusical",
+      description: "Descripcion de HP Musical",
     },
 ];
   
