@@ -1,5 +1,4 @@
 import ItemCount from "../ItemCount/ItemCount";
-// eslint-disable-next-line react/prop-types
 const ItemDetail = ({ id, name, img, category, price, description, stock }) => {
   const item = {
     id: id,

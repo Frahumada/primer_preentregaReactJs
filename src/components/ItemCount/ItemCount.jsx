@@ -2,7 +2,6 @@ import { useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 
-// eslint-disable-next-line react/prop-types
 const Contador = ({ initial = 1, stock, item }) => {
   const [contador, setContador] = useState(initial);
 

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// eslint-disable-next-line react/prop-types
 const Item = ({id, name, img, category, price, stock}) => {
   return (
     <article className="d-flex align-content-stretch flex-wrap">
